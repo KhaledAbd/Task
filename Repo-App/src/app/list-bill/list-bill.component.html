@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <app-bill-form (billEvent) = "billSet($event)"></app-bill-form>
+    <div class="col-md-4"></div>
+
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">createdAt</th>
+      <th scope="col">clienName</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bill of bills">
+      <td>{{ bill.createdAt | date:'short'}}</td>
+      <td>{{ bill.clienName}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="remove(bill.id)" ></button>
+    </td>
+    </tr>
+  </tbody>
+</table>
